@@ -18,11 +18,9 @@
  *
  */
 
-// const HDWalletProvider = require('truffle-hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HDWalletProvider = require('truffle-hdwallet-provider');
+const infuraKey = "216af4426abd4e959c33ec26ae1e0084";
+const mnemonic = "supply execute absorb bottom caution ecology science finger fatal ignore climb affair";
 
 module.exports = {
   /**
@@ -47,6 +45,13 @@ module.exports = {
       port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
      },
+
+    // Useful for deploying to a public network.
+    // NB: It's important to wrap the provider as a function.
+      rinkeby: {
+        provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`),
+        network_id: 4,       // Rinkeby's id
+      }
 
     // Another network with more advanced options...
     // advanced: {
