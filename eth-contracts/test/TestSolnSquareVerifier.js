@@ -1,5 +1,6 @@
 var SolnSquareVerifier = artifacts.require('SolnSquareVerifier');
 var SquareVerifier = artifacts.require('SquareVerifier');
+const json = require('./proof.json');
 
 contract('SolnSquareVerifier', accounts => {
 
@@ -29,7 +30,7 @@ contract('SolnSquareVerifier', accounts => {
 
         let supplyBefore = (await this.contract.totalSupply.call()).toNumber();
 
-        await this.contract.mintToken(account_two, 2, a, b, c, input, {from: account_one});
+        await this.contract.mintToken(account_two, 2, json.proof.a,json.proof.b,json.proof.c,json.inputs, {from: account_one});
 
         let supplyAfter = (await this.contract.totalSupply.call()).toNumber();
         let difference = supplyAfter - supplyBefore;

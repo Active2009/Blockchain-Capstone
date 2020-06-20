@@ -1,7 +1,7 @@
 pragma solidity >=0.4.21 <0.6.0;
 import "openzeppelin-solidity/contracts/utils/Address.sol";
 import "./ERC721Mintable.sol";
-import "./Verifier.sol";
+import "./verifier.sol";
 
 // TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
 contract SquareVerifier is Verifier{ }
